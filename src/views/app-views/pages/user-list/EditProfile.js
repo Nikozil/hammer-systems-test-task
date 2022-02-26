@@ -15,6 +15,7 @@ export class EditProfile extends Component {
     const onFinish = (values) => {
       const key = 'updatable';
       message.loading({ content: 'Updating...', key });
+
       setTimeout(() => {
         const user = {
           ...profile.selectedUser,
@@ -34,9 +35,12 @@ export class EditProfile extends Component {
             zipcode: values.postcode,
           },
         };
+
         saveChanges(user);
+
         message.success({ content: 'Done!', key, duration: 2 });
       }, 1000);
+
       setEditableProfile({ visible: false, selectedUser: null });
     };
 

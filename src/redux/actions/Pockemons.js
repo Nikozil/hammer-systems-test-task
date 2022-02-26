@@ -1,37 +1,29 @@
 import {
-  SET_USER,
+  CHANGE_POCKEMONS_COORDS,
+  POCKEMONS_FETCHING,
+  SET_POCKEMONS,
   SHOW_LOADING,
-  DELETE_USER,
   SHOW_ERROR_MESSAGE,
-  USERS_FETCHING,
   CLOSE_ERROR_MESSAGE,
-  CHANGE_USER,
-} from '../constants/Users';
+} from 'redux/constants/Pockemons';
 
-export const setUsers = (users) => {
+export const setPockemons = (pockemons) => {
   return {
-    type: SET_USER,
-    payload: users,
+    type: SET_POCKEMONS,
+    payload: pockemons,
   };
 };
-export const changeUser = (user) => {
+export const changePockemonsCoords = (pockemon) => {
   return {
-    type: CHANGE_USER,
-    payload: user,
+    type: CHANGE_POCKEMONS_COORDS,
+    payload: pockemon,
   };
 };
-export const fetchingUsers = () => {
+export const fetchingPockemons = () => {
   return {
-    type: USERS_FETCHING,
+    type: POCKEMONS_FETCHING,
   };
 };
-export const deleteUser = (userId) => {
-  return {
-    type: DELETE_USER,
-    payload: userId,
-  };
-};
-
 export const showLoading = () => {
   return {
     type: SHOW_LOADING,

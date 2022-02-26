@@ -45,7 +45,7 @@ const UsersTable = ({ users, onShow, onDelete }) => {
     {
       title: 'Website',
       dataIndex: 'website',
-      responsive: ['xl', 'xxl', 'lg'],
+      responsive: ['xl', 'xxl'],
 
       sorter: {
         compare: (a, b) => a.website.length - b.website.length,
@@ -72,7 +72,7 @@ const UsersTable = ({ users, onShow, onDelete }) => {
     {
       title: 'Company name',
       dataIndex: 'company',
-      responsive: ['xl', 'xxl'],
+      responsive: ['xxl'],
       render: (company) => <span>{company.name} </span>,
       sorter: {
         compare: (a, b) => a.company.name.length - b.company.name.length,

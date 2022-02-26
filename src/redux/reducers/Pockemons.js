@@ -1,42 +1,34 @@
 import {
-  SET_USER,
+  SET_POCKEMONS,
+  CHANGE_POCKEMONS_COORDS,
   SHOW_LOADING,
-  DELETE_USER,
   SHOW_ERROR_MESSAGE,
   CLOSE_ERROR_MESSAGE,
-  CHANGE_USER,
-} from '../constants/Users';
+} from '../constants/Pockemons';
 
 const initState = {
-  users: [],
+  pockemons: [],
   loading: false,
   message: '',
   showMessage: false,
 };
 
-const users = (state = initState, action) => {
+const pockemons = (state = initState, action) => {
   switch (action.type) {
-    case SET_USER: {
+    case SET_POCKEMONS: {
       return {
         ...state,
         loading: false,
-        users: [...action.payload],
+        pockemons: [...action.payload],
       };
     }
-    case CHANGE_USER: {
-      const { id } = action.payload;
+    case CHANGE_POCKEMONS_COORDS: {
+      const { id, coords } = action.payload;
       return {
         ...state,
-        users: state.users.map((user) =>
-          user.id === id ? action.payload : user
+        pockemons: state.pockemons.map((pockemon) =>
+          pockemon.id === id ? { ...pockemon, coords } : pockemon
         ),
-      };
-    }
-    case DELETE_USER: {
-      return {
-        ...state,
-        loading: false,
-        users: state.users.filter((user) => user.id !== action.payload),
       };
     }
     case SHOW_LOADING: {
@@ -57,10 +49,9 @@ const users = (state = initState, action) => {
         message: '',
         showMessage: false,
       };
-
     default:
       return state;
   }
 };
 
-export default users;
+export default pockemons;
